@@ -35,7 +35,7 @@ jobs:
       - run: ls -la
       - id: tests
         run: yarn test
-      - run: echo ${{job.status}}
+      - run: echo "${{job.status}}"
   tests-done:
     name: Tests Done
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
     needs: [run-tests]
     steps:
       - run : echo 'All good! 🚢'
-      # - run : echo ${{jobs.run-tests.steps.tests.conclusion}}
+      - run : echo "${{needs.run-tests.result}}"
   deploy: 
     name: Deployment
     runs-on: ubuntu-latest
