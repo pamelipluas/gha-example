@@ -18,4 +18,9 @@ jobs:
           node-version: 'v18.8.0'
       - run: echo 'hola mundo'
       - run: node -v
+  run-tests:
+    name: Run unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - run: yarn test
   
