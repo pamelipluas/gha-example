@@ -1,0 +1,8 @@
+{
+  "name": "gha-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:pamelipluas/gha-example.git",
+  "author": "pamelipluas <pamepluas@gmail.com>",
+  "license": "MIT"
+}
