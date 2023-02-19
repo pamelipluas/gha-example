@@ -37,6 +37,7 @@ jobs:
   tests-done:
     name: Tests Done
     runs-on: ubuntu-latest
+    if: ${{ always() }}
     needs: [run-tests]
     steps:
       - run : echo 'All good!'
