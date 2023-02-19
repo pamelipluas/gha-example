@@ -23,7 +23,7 @@ jobs:
   run-tests:
     name: Run unit tests
     runs-on: ubuntu-latest
-    needs: [setup]
+    needs: [setup, checkout]
     steps:
       - run: ls -la
       - run: yarn test
