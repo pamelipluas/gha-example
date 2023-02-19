@@ -1,0 +1,12 @@
+name: Build application
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  on_build:
+    name: build
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo 'hola mundo'
+  
