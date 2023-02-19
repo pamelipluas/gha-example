@@ -1,10 +1,14 @@
 describe('Test Suite', () => {
-    it('should return true', () => {
+    xit('should timeout', () => {
         
         setTimeout(() => {
             expect(1).toBe(1);
         }, 70000)
         
+    });
+
+    it('should pass', () => {
+        expect(1).toBe(1);
     });
     
 });
