@@ -3,14 +3,16 @@ on:
   push:
     branches:
       - 'main'
-runs-on: ubuntu-latest
 jobs:
   checkout:
     name: Checkout Code
+    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
   setup:
     name: Setup environment
+    runs-on: ubuntu-latest
     needs: [checkout]
     steps:
       - uses: actions/setup-node@v3
@@ -19,6 +21,7 @@ jobs:
       - run: node -v
   run-tests:
     name: Run unit tests
+    runs-on: ubuntu-latest
     needs: [setup]
     steps:
       - uses: actions/checkout@v3
@@ -26,11 +29,13 @@ jobs:
       - run: yarn test
   tests-done:
     name: Tests Done
+    runs-on: ubuntu-latest
     needs: [run-tests]
     steps:
       - run : echo 'All good!'
   deploy: 
     name: Deployment
+    runs-on: ubuntu-latest
     needs: [tests-done]
     steps:
       - run : echo 'DEPLOY!!! 🚢'
