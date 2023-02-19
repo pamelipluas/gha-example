@@ -5,6 +5,9 @@
   "repository": "git@github.com:pamelipluas/gha-example.git",
   "author": "pamelipluas <pamepluas@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "yarn jest"
+  },
   "devDependencies": {
     "jest": "^29.4.3"
   }
