@@ -1,13 +1,15 @@
 name: Build application
 on:
+  push:
+    branches:
+      - '*'
   pull_request:
     types:
       - opened
-      - reopened
-      - labeled
-      - syncronize
+      - syncronized
+      - editeds
 
-
+  
 jobs:
   checkout:
     name: Checkout Code
