@@ -2,7 +2,14 @@ name: Build application
 on:
   push:
     branches:
-      - 'main'
+      - '*'
+  pull_request:
+    types:
+      - opened
+      - syncronized
+      - editeds
+
+  
 jobs:
   checkout:
     name: Checkout Code
@@ -22,16 +29,28 @@ jobs:
     name: Run unit tests
     runs-on: ubuntu-latest
     needs: [setup]
+    timeout-minutes: 1
     steps:
       - uses: actions/checkout@v3
       - run: ls -la
-      - run: yarn test
+      - id: tests
+        run: yarn test
+      - run: echo "${{job.status}}"
   tests-done:
     name: Tests Done
     runs-on: ubuntu-latest
+    if: ${{ always() }}
     needs: [run-tests]
     steps:
-      - run : echo 'All good!'
+      - run : echo "${{needs.run-tests.result}}" 
+      - run : |
+              if [[ ${{needs.run-tests.result}} =~ "failure" ]]; then
+                echo "All bad! 😠";
+                exit 1;
+              else
+                echo "All good! 😀";
+                exit 0;
+              fi
   deploy: 
     name: Deployment
     runs-on: ubuntu-latest
