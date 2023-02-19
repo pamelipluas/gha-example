@@ -3,7 +3,7 @@ describe('Test Suite', () => {
         
         setTimeout(() => {
             expect(1).toBe(1);
-        }, 1500)
+        }, 70000)
         
     });
     
