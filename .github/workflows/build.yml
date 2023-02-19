@@ -17,7 +17,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 'v18.8.0'
-      - run: echo 'hola mundo'
       - run: node -v
   run-tests:
     name: Run unit tests
