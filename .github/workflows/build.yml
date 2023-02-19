@@ -35,6 +35,7 @@ jobs:
       - run: ls -la
       - id: tests
         run: yarn test
+      - run: echo ${{job.status}}
   tests-done:
     name: Tests Done
     runs-on: ubuntu-latest
