@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - 'main'
+runs-on: ubuntu-latest
 jobs:
-  runs-on: ubuntu-latest
   checkout:
     name: Checkout Code
     steps:
