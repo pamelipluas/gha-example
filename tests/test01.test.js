@@ -1,5 +1,5 @@
 describe('Test Suite', () => {
-    xit('should timeout', () => {
+    it('should timeout', () => {
         
         setTimeout(() => {
             expect(1).toBe(1);
@@ -11,7 +11,7 @@ describe('Test Suite', () => {
         expect(1).toBe(1);
     });
 
-    it('should fail', () => {
+    xit('should fail', () => {
         expect(1).toBe(2);
     });
     
