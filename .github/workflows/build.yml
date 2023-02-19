@@ -43,7 +43,7 @@ jobs:
     needs: [run-tests]
     steps:
       - run : echo 'All good! 🚢'
-      - run : echo ${{jobs.run-tests.steps.tests.conclusion}}
+      # - run : echo ${{jobs.run-tests.steps.tests.conclusion}}
   deploy: 
     name: Deployment
     runs-on: ubuntu-latest
