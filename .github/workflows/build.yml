@@ -33,14 +33,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: ls -la
-      - run: yarn test
+      - id: tests
+        run: yarn test
   tests-done:
     name: Tests Done
     runs-on: ubuntu-latest
     if: ${{ always() }}
     needs: [run-tests]
     steps:
-      - run : echo 'All good!'
+      - run : echo 'All good! 🚢'
+      - run : echo 'tests conclusion: ${{jobs.run-tests.steps.tests.conclusion}}'
   deploy: 
     name: Deployment
     runs-on: ubuntu-latest
