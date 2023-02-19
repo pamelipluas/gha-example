@@ -4,10 +4,14 @@ on:
     branches:
       - 'main'
 jobs:
-  on_build:
-    name: build
+  setup:
+    name: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 'v18.8.0'
       - run: echo 'hola mundo'
+      - run: node -v
   
