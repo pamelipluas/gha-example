@@ -42,8 +42,13 @@ jobs:
     if: ${{ always() }}
     needs: [run-tests]
     steps:
-      - run : echo 'All good! 🚢'
-      - run : echo "${{needs.run-tests.result}}"
+      - run : echo "${{needs.run-tests.result}}" 
+      - run : |
+              if [[ ${{needs.run-tests.result}} =~ "failure" ]]; then
+                echo "All bad! 😠"
+              else
+                echo "All good! 😀"
+              fi
   deploy: 
     name: Deployment
     runs-on: ubuntu-latest
